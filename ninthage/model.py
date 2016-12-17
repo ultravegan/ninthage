@@ -37,7 +37,7 @@ class Model(object):
         for stat in value:
             if stat not in variables.STATS:
                 raise exception.ModelStatNotExistException(stat)
-            if not 0 <= stat.value <= 10:
+            if not 0 <= value[stat] <= 10:
                 raise exception.ModelStatNotInRange(stat, stat.value)
         self._stats = value
 
