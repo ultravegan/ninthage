@@ -18,26 +18,37 @@ class TerrainFeature(object):
         self._type = type
 
     @property
-    def x(self):
+    def x_size(self):
         return self._x_size
 
     @property
-    def y(self):
+    def y_size(self):
         return self._y_size
 
     @property
     def type(self):
         return self._type
 
-    @x.setter
-    def x(self, value):
-        name.setter
+    @x_size.setter
+    def x_size(self, value):
+        assert value > 0 and isinstance(value, int), "x_size {error} {extra}".format(
+            error=exception.ERR_MESSAGE_TERRAIN_FEATURE_X_SIZE_NOT_UNSIGNED_INT,
+            extra="not a {}".format(type(value)))
+        self._x_size = value
 
-        def name(self, value):
-            assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_NAME_NOT_STR,
-                                                                    extra="not a {}".format(type(value)))
-            self._name = value
-        self._name = value
+    @y_size.setter
+    def y_size(self, value):
+        assert value > 0 and isinstance(value, int), "y_size {error} {extra}".format(
+            error=exception.ERR_MESSAGE_TERRAIN_FEATURE_Y_SIZE_NOT_UNSIGNED_INT,
+            extra="not a {}".format(type(value)))
+        self._y_size = value
+
+    @type.setter
+    def type(self, value):
+        assert isinstance(value, str), "type {error} {extra}".format(
+            error=exception.ERR_MESSAGE_TERRAIN_FEATURE_TYPE_NOT_STRING,
+            extra="not a {}".format(type(value)))
+        self._type = value
 
 
 class Map(object):
@@ -62,6 +73,7 @@ pole = TerrainFeature(200, 200, 'field')
 a.set_terrain_features(0, 0, 'hill')
 a.set_terrain_features(100, 100, 'water')
 a.set_terrain_features(200, 200, 'field')
-print a._terrain_features[1].x
-print a._terrain_features[1].y
+a._terrain_features[1].type = -1
+print a._terrain_features[1].x_size
+print a._terrain_features[1].y_size
 print a._terrain_features[1].type
