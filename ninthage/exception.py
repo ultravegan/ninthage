@@ -2,20 +2,17 @@ __all__ = ["ERR_MESSAGE_MODEL_NAME_NOT_STR", "ERR_MESSAGE_MODEL_ROLE_NOT_STR", "
            "ERR_MESSAGE_MODEL_STATS_NOT_DICT", "ERR_MESSAGE_MODEL_TYPE_NOT_STR", "ModelRoleNotExistException",
            "ModelSkillNotExistException", "ModelStatNotExistException", "ModelTypeNotExistException",
            "ModelStatNotInRange", "ModelSkillNotInModelSkills", "ERR_MESSAGE_MODEL_SKILL_NOT_STR",
-           "ERR_MESSAGE_MODEL_STAT_NOT_STR", "ERR_MESSAGE_TERRAIN_FEATURE_X_SIZE_NOT_UNSIGNED_INT",
-           "ERR_MESSAGE_TERRAIN_FEATURE_Y_SIZE_NOT_UNSIGNED_INT",
-           "ERR_MESSAGE_TERRAIN_FEATURE_TYPE_NOT_STRING"]  # model.py errors
-ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name has to be string"
-ERR_MESSAGE_MODEL_STATS_NOT_DICT = "Model stats has to be dictionary"
-ERR_MESSAGE_MODEL_SKILLS_NOT_LIST = "Model skills has to be list"
-ERR_MESSAGE_MODEL_TYPE_NOT_STR = "Model type has to be string"
-ERR_MESSAGE_MODEL_ROLE_NOT_STR = "Model role has to be string"
-ERR_MESSAGE_MODEL_SKILL_NOT_STR = "Model skill has to be string"
-ERR_MESSAGE_MODEL_STAT_NOT_STR = "Skill has to be string"
-ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT = "Skill value has to be int"
-ERR_MESSAGE_TERRAIN_FEATURE_X_SIZE_NOT_UNSIGNED_INT = "has to be unsigned int"
-ERR_MESSAGE_TERRAIN_FEATURE_Y_SIZE_NOT_UNSIGNED_INT = "has to be unsigned int"
-ERR_MESSAGE_TERRAIN_FEATURE_TYPE_NOT_STRING = "has to be string"
+           "ERR_MESSAGE_MODEL_STAT_NOT_STR"]
+
+# model.py errors
+ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name have to be string"
+ERR_MESSAGE_MODEL_STATS_NOT_DICT = "Model stats have to be dictionary"
+ERR_MESSAGE_MODEL_SKILLS_NOT_LIST = "Model skills have to be list"
+ERR_MESSAGE_MODEL_TYPE_NOT_STR = "Model type have to be string"
+ERR_MESSAGE_MODEL_ROLE_NOT_STR = "Model role have to be string"
+ERR_MESSAGE_MODEL_SKILL_NOT_STR = "Model skill have to be string"
+ERR_MESSAGE_MODEL_STAT_NOT_STR = "Skill have to be string"
+ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT = "Skill value have to be int"
 
 
 class ModelStatNotExistException(Exception):
@@ -56,7 +53,7 @@ class ModelStatNotInRange(Exception):
         self.value = value
 
     def __str__(self):
-        return 'Stat {stat} value: {value{ is not in range [0,10]'.format(stat=self.stat, value=value)
+        return 'Stat {stat} value: {value} is not in range [0,10]'.format(stat=self.stat, value=self.value)
 
 
 class ModelSkillNotInModelSkills(Exception):

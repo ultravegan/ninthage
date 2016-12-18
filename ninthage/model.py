@@ -46,7 +46,7 @@ class Model(object):
             if stat not in variables.STATS:
                 print stat
                 raise exception.ModelStatNotExistException(stat)
-            if not (0 <= value[stat] <= 10) or value[stat] == '-':
+            if not (0 <= value[stat] <= 10):
                 raise exception.ModelStatNotInRange(stat, value[stat])
         self._stats = value
 
@@ -95,6 +95,8 @@ class Model(object):
     def movement(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("M", value)
         self._stats['M'] = value
 
     @property
@@ -105,6 +107,8 @@ class Model(object):
     def weapon_skill(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("WS", value)
         self._stats['WS'] = value
 
     @property
@@ -115,6 +119,8 @@ class Model(object):
     def ballistic_skill(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("BS", value)
         self._stats['BS'] = value
 
     @property
@@ -125,6 +131,8 @@ class Model(object):
     def strength(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("S", value)
         self._stats['S'] = value
 
     @property
@@ -135,6 +143,8 @@ class Model(object):
     def toughness(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("T", value)
         self._stats['T'] = value
 
     @property
@@ -145,6 +155,8 @@ class Model(object):
     def wounds(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("W", value)
         self._stats['W'] = value
 
     @property
@@ -155,6 +167,8 @@ class Model(object):
     def initiative(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("I", value)
         self._stats['I'] = value
 
     @property
@@ -165,6 +179,8 @@ class Model(object):
     def attacks(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("A", value)
         self._stats['A'] = value
 
     @property
@@ -175,6 +191,8 @@ class Model(object):
     def leadership(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("Ld", value)
         self._stats['Ld'] = value
 
     @property
@@ -185,6 +203,8 @@ class Model(object):
     def save(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("Sv", value)
         self._stats['Sv'] = value
 
     @property
@@ -195,6 +215,8 @@ class Model(object):
     def ward_save(self, value):
         assert isinstance(value, int), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT,
                                                                 extra="not a {}".format(type(value)))
+        if not (0 <= value <= 10):
+            raise exception.ModelStatNotInRange("WSv", value)
         self._stats['WSv'] = value
 
     def add_skills(self, *args):
@@ -224,7 +246,7 @@ class Model(object):
                                                                 extra="not a {}".format(type(value)))
         if stat not in variables.STATS:
             raise exception.ModelStatNotExistException(stat)
-        if not (0 <= value <= 10) or value == '-':
+        if not (0 <= value <= 10):
             raise exception.ModelStatNotInRange(stat, value)
         self.stats[stat] = value
 
