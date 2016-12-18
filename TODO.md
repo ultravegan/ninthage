@@ -1,3 +1,3 @@
 - resolve issue with running tests from test directory, at this moment test_x cannot find above imported python file
-- append other skills to variables.py
 - support exceptions testing in test_model.py
+- write tests for other setter and getter stats fucntions

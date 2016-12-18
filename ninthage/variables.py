@@ -1,6 +1,6 @@
 __all__ = ["STATS", "SKILLS", "MODEL_ROLE", "MODEL_TYPE"]
 
-STATS = {"Mv": 0, "WS": 0, "BS": 0, "St": 0, "To": 0, "Wo": 0, "In": 0, "At": 0, "Ld": 0,
+STATS = {"M": 0, "WS": 0, "BS": 0, "S": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
          "Sv": 0, "WSv": 0}
 
 SKILLS = ["Accurate", "Ambush", "Area Attack", "Armour Piercing", "Breath Weapon", "Cannot March", "Channel",
