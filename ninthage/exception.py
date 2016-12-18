@@ -2,7 +2,7 @@ __all__ = ["ERR_MESSAGE_MODEL_NAME_NOT_STR", "ERR_MESSAGE_MODEL_ROLE_NOT_STR", "
            "ERR_MESSAGE_MODEL_STATS_NOT_DICT", "ERR_MESSAGE_MODEL_TYPE_NOT_STR", "ModelRoleNotExistException",
            "ModelSkillNotExistException", "ModelStatNotExistException", "ModelTypeNotExistException",
            "ModelStatNotInRange", "ModelSkillNotInModelSkills", "ERR_MESSAGE_MODEL_SKILL_NOT_STR",
-           "ERR_MESSAGE_MODEL_STAT_NOT_STR"]
+           "ERR_MESSAGE_MODEL_STAT_NOT_STR", "ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT"]
 
 # model.py errors
 ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name have to be string"
