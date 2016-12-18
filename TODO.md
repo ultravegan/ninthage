@@ -1,3 +1,5 @@
 - resolve issue with running tests from test directory, at this moment test_x cannot find above imported python file
 - support exceptions testing in test_model.py
 - write tests for other setter and getter stats fucntions
+- base size of model, equipement to implement
+- consider '-' as a value of stat
