@@ -3,3 +3,4 @@
 - write tests for other setter and getter stats fucntions
 - base size of model, equipement to implement
 - consider '-' as a value of stat
+- add equip to tests (include equip in init and write new tests)

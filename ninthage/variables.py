@@ -14,3 +14,6 @@ MODEL_TYPE = ["Infantry", "War Beast", "Cavalry", "Monstrous Infantry", "Monstro
               "Chariot", "Monster", "Ridden Monster", "Swarm", "War Machine"]
 
 MODEL_ROLE = ["Champion", "Standard Bearer", "Musician"]
+
+EQUIPMENT = ["Hand Weapon", "Flail", "Great Weapon", "Halberd", "Paired Weapons", "Lance", "Light Lance", "Spear",
+             "Bow", "Longbow", "Crossbow", "Handgun", "Pistol", "Throwing Weapons", ""]

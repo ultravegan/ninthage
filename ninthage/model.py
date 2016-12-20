@@ -9,7 +9,7 @@ __author__ = "ultravegan"
 
 
 class Model(object):
-    def __init__(self, name, stats, skills, model_type, role=None):
+    def __init__(self, name, stats, skills, model_type, equipment, role=None):
         """
 
         :param name: str
@@ -23,6 +23,7 @@ class Model(object):
         self.skills = skills
         self.model_type = model_type
         self.role = role
+        self.equipment = equipment
 
     @property
     def name(self):
@@ -86,6 +87,21 @@ class Model(object):
         if value not in variables.MODEL_ROLE:
             raise exception.ModelRoleNotExistException(value)
         self._role = value
+
+    @property
+    def equipment(self):
+        return self._equipment
+
+    @equipment.setter
+    def equipment(self, value):
+        assert isinstance(value, list), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_LIST,
+                                                                 extra="not a {}".format(type(value)))
+        for equip in value:
+            assert isinstance(equip, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR,
+                                                                    extra="not a {}".format(type(value)))
+            if equip not in variables.EQUIPMENT:
+                raise exception.ModelEquipmentNotExistException(equip)
+        self._equipment = value
 
     @property
     def movement(self):
@@ -249,6 +265,27 @@ class Model(object):
         if not (0 <= value <= 10):
             raise exception.ModelStatNotInRange(stat, value)
         self.stats[stat] = value
+
+    def add_equipment(self, *args):
+        for equip in args:
+            assert isinstance(equip, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
+                                                                    extra="not a {}".format(type(equip)))
+            if equip not in variables.EQUIPMENT:
+                raise exception.ModelEquipmentNotExistException(equip)
+            if equip in self.equipment:
+                continue
+            self.equipment.append(equip)
+
+    def remove_equipment(self, *args):
+        for equip in args:
+            assert isinstance(equip, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
+                                                                    extra="not a {}".format(type(equip)))
+            if equip not in variables.EQUIPMENT:
+                raise exception.ModelEquipmentNotExistException(equip)
+            if equip not in self.equipment:
+                raise exception.ModelSkillNotInModelEquipment(equip)
+            self.equipment.remove(equip)
+    
 
 
 a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,

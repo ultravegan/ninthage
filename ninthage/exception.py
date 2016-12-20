@@ -5,14 +5,16 @@ __all__ = ["ERR_MESSAGE_MODEL_NAME_NOT_STR", "ERR_MESSAGE_MODEL_ROLE_NOT_STR", "
            "ERR_MESSAGE_MODEL_STAT_NOT_STR", "ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT"]
 
 # model.py errors
-ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name have to be string"
-ERR_MESSAGE_MODEL_STATS_NOT_DICT = "Model stats have to be dictionary"
-ERR_MESSAGE_MODEL_SKILLS_NOT_LIST = "Model skills have to be list"
-ERR_MESSAGE_MODEL_TYPE_NOT_STR = "Model type have to be string"
-ERR_MESSAGE_MODEL_ROLE_NOT_STR = "Model role have to be string"
-ERR_MESSAGE_MODEL_SKILL_NOT_STR = "Model skill have to be string"
-ERR_MESSAGE_MODEL_STAT_NOT_STR = "Skill have to be string"
-ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT = "Skill value have to be int"
+ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name has to be string"
+ERR_MESSAGE_MODEL_STATS_NOT_DICT = "Model stats has to be dictionary"
+ERR_MESSAGE_MODEL_SKILLS_NOT_LIST = "Model skills has to be list"
+ERR_MESSAGE_MODEL_TYPE_NOT_STR = "Model type has to be string"
+ERR_MESSAGE_MODEL_ROLE_NOT_STR = "Model role has to be string"
+ERR_MESSAGE_MODEL_SKILL_NOT_STR = "Model skill has to be string"
+ERR_MESSAGE_MODEL_STAT_NOT_STR = "Skill has to be string"
+ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT = "Skill value has to be int"
+ERR_MESSAGE_MODEL_EQUIPMENT_NOT_LIST = 'Model equipments have to be list'
+ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR = 'Model equipments have to be string'
 
 
 class ModelStatNotExistException(Exception):
@@ -29,6 +31,14 @@ class ModelSkillNotExistException(Exception):
 
     def __str__(self):
         return 'Skill {skill} does not exists'.format(skill=self.skill)
+
+
+class ModelEquipmentNotExistException(Exception):
+    def __init__(self, equip):
+        self.equip = equip
+
+    def __str__(self):
+        return 'Equipment {equip} does not exists'.format(equip=self.equip)
 
 
 class ModelTypeNotExistException(Exception):
@@ -62,3 +72,11 @@ class ModelSkillNotInModelSkills(Exception):
 
     def __str__(self):
         return 'Model does not have {skill} skill'.format(skill=self.skill)
+
+
+class ModelEquipmentNotInModelEquipment(Exception):
+    def __init__(self, equip):
+        self.equip = equip
+
+    def __str__(self):
+        return 'Model does not have {equip} equip'.format(equip=self.equip)
