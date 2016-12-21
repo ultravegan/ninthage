@@ -1,34 +1,36 @@
 import exception
 
+__all__ = ["_ModelRole", "Champion", "Musician", "StandardBearer"]
+
 
 class _ModelRole(object):
     def __init__(self):
-        self.role = None
+        self.name = ''
 
     @property
-    def role(self):
-        return self._role
+    def name(self):
+        return self._name
 
-    @role.setter
-    def role(self, value):
+    @name.setter
+    def name(self, value):
         assert isinstance(value, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_ROLE_NOT_STR,
                                                                 extra="not a {}".format(type(value)))
-        self._role = value
+        self._name = value
 
 
-class Champion(object):
+class Champion(_ModelRole):
     def __init__(self, *args, **kwargs):
         super(Champion, self).__init__(*args, **kwargs)
-        self.role = "Champion"
+        self.name = "Champion"
 
 
-class Musician(object):
+class Musician(_ModelRole):
     def __init__(self, *args, **kwargs):
         super(Musician, self).__init__(*args, **kwargs)
-        self.role = "Musician"
+        self.name = "Musician"
 
 
-class StandardBearer(object):
+class StandardBearer(_ModelRole):
     def __init__(self, *args, **kwargs):
         super(StandardBearer, self).__init__(*args, **kwargs)
-        self.role = "Standard Bearer"
+        self.name = "Standard Bearer"

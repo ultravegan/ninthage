@@ -6,6 +6,8 @@ import exception
 import variables
 from equipment import *
 from skill import *
+from model_type import *
+from model_role import *
 
 __author__ = "ultravegan"
 
@@ -17,9 +19,9 @@ class Model(object):
         :param name: str
         :param stats: dict
         :param skills: list
-        :param model_type: str
+        :param model_type: ModelType
         :param equipment: list
-        :param role: str
+        :param role: ModelRole
         """
         self.name = name
         self.stats = stats
@@ -73,10 +75,9 @@ class Model(object):
 
     @model_type.setter
     def model_type(self, value):
-        assert isinstance(value, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_TYPE_NOT_STR,
-                                                                extra="not a {}".format(type(value)))
-        if value not in variables.MODEL_TYPE:
-            raise exception.ModelTypeNotExistException(value)
+        assert isinstance(value, _ModelType), "{error} {extra}".format(
+            error=exception.ERR_MESSAGE_MODEL_TYPE_NOT_MODEL_TYPE,
+            extra="not a {}".format(type(value)))
         self._model_type = value
 
     @property
@@ -85,10 +86,9 @@ class Model(object):
 
     @role.setter
     def role(self, value):
-        assert isinstance(value, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_ROLE_NOT_STR,
-                                                                extra="not a {}".format(type(value)))
-        if value not in variables.MODEL_ROLE:
-            raise exception.ModelRoleNotExistException(value)
+        assert isinstance(value, _ModelRole), "{error} {extra}".format(
+            error=exception.ERR_MESSAGE_MODEL_ROLE_NOT_MODEL_ROLE,
+            extra="not a {}".format(type(value)))
         self._role = value
 
     @property
@@ -284,7 +284,10 @@ class Model(object):
                 raise exception.ModelEquipmentNotInModelEquipment(equip.name)
             self.equipment.remove([x for x in self.equipment if x.name == equip])
 
-# skills = [Fear(), Ambush()]
-# equipment = [Shield(), Halberd()]
-# a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
-#                             "Sv": 0, "WSv": 0}, skills, "Monster", equipment, role="Champion")
+
+skills = [Fear(), Ambush()]
+equipment = [Shield(), Halberd()]
+model_role = Champion()
+model_type = Monster()
+a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
+                             "Sv": 0, "WSv": 0}, skills, model_type, equipment, role=model_role)

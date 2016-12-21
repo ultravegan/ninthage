@@ -4,7 +4,8 @@ __all__ = ["ERR_MESSAGE_MODEL_NAME_NOT_STR", "ERR_MESSAGE_MODEL_ROLE_NOT_STR", "
            "ModelStatNotInRange", "ModelSkillNotInModelSkills", "ERR_MESSAGE_MODEL_STAT_NOT_STR",
            "ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT", "ERR_MESSAGE_MODEL_SKILL_NOT_SKILL", "ModelSkillAlreadyInSkills",
            "ModelSkillNotInSkills", "ERR_MESSAGE_MODEL_EQUIPMENT_NOT_EQUIPMENT", "ModelEquipmentAlreadyExistException",
-           "ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR", "ERR_MESSAGE_MODEL_SKILL_NOT_STR"]
+           "ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR", "ERR_MESSAGE_MODEL_SKILL_NOT_STR",
+           "ERR_MESSAGE_MODEL_TYPE_NOT_MODEL_TYPE", "ERR_MESSAGE_MODEL_ROLE_NOT_MODEL_ROLE"]
 
 # model.py errors
 ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name has to be string"
@@ -15,10 +16,12 @@ ERR_MESSAGE_MODEL_ROLE_NOT_STR = "Model role has to be string"
 ERR_MESSAGE_MODEL_STAT_NOT_STR = "Skill has to be string"
 ERR_MESSAGE_MODEL_STAT_VALUE_NOT_INT = "Skill value has to be int"
 ERR_MESSAGE_MODEL_EQUIPMENT_NOT_LIST = 'Model equipments have to be list'
-ERR_MESSAGE_MODEL_EQUIPMENT_NOT_EQUIPMENT = 'Model equipments have to be equipment'
-ERR_MESSAGE_MODEL_SKILL_NOT_SKILL = 'Model skill not exists'
+ERR_MESSAGE_MODEL_EQUIPMENT_NOT_EQUIPMENT = 'Model equipments has to be _Equipment object'
+ERR_MESSAGE_MODEL_SKILL_NOT_SKILL = 'Model skill has to be _Skill object'
 ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR = 'Mode equipment has to be string'
 ERR_MESSAGE_MODEL_SKILL_NOT_STR = 'Model skill has to be string'
+ERR_MESSAGE_MODEL_TYPE_NOT_MODEL_TYPE = 'Model type has to be _ModelType object'
+ERR_MESSAGE_MODEL_ROLE_NOT_MODEL_ROLE = 'Model role has to be _ModelRole object'
 
 
 class ModelStatNotExistException(Exception):

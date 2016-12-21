@@ -1,3 +1,5 @@
+import exception
+
 __all__ = ["_Equipment", "_Weapon", "_CloseCombatWeapon", "_ShootingWeapon", "_ArtilleryWeapon", "_Armour",
            "_SuitOfArmor", "_Shield", "_OtherProtections", "_MountProtection", "_InnateDefence", "Barding",
            "BoltThrower", "Bow", "Crossbow", "Flail", "FlameThrower", "GreatWeapon", "Halberd", "Handgun", "HandWeapon",

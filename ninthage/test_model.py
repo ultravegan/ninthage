@@ -6,6 +6,8 @@ import unittest
 from skill import *
 from model import Model
 from equipment import *
+from model_role import *
+from model_type import *
 
 __author__ = "ultravegan"
 
@@ -18,7 +20,7 @@ class TestModel(unittest.TestCase):
     def testModelExist(self):
         self.model = Model("Chaos Warriors",
                            {"M": 0, "WS": 1, "BS": 2, "S": 3, "T": 4, "W": 5, "I": 6, "A": 7, "Ld": 8, "Sv": 9,
-                            "WSv": 10}, [Accurate(), Ambush()], "Monster", [Shield(), Halberd()], "Champion")
+                            "WSv": 10}, [Accurate(), Ambush()], Monster(), [Shield(), Halberd()], Champion())
 
     def testModelGetName(self):
         self.testModelExist()
@@ -36,11 +38,11 @@ class TestModel(unittest.TestCase):
 
     def testModelGetType(self):
         self.testModelExist()
-        self.assertEqual(self.model.model_type, "Monster", "cannot get type from model")
+        self.assertEqual(self.model.model_type.name, "Monster", "cannot get type from model")
 
     def testModelGetRole(self):
         self.testModelExist()
-        self.assertEqual(self.model.role, "Champion", "cannot get role from model")
+        self.assertEqual(self.model.role.name, "Champion", "cannot get role from model")
 
     def testModelSetName(self):
         self.testModelExist()
@@ -62,13 +64,13 @@ class TestModel(unittest.TestCase):
 
     def testModelSetType(self):
         self.testModelExist()
-        self.model.model_type = "Infantry"
-        self.assertEqual(self.model.model_type, "Infantry", "cannot get type from model")
+        self.model.model_type = Infantry()
+        self.assertEqual(self.model.model_type.name, "Infantry", "cannot get type from model")
 
     def testModelSetRole(self):
         self.testModelExist()
-        self.model.role = "Musician"
-        self.assertEqual(self.model.role, "Musician", "cannot get role from model")
+        self.model.role = Musician()
+        self.assertEqual(self.model.role.name, "Musician", "cannot get role from model")
 
     def testModelAddSkill(self):
         self.testModelExist()

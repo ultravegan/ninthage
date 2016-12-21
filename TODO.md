@@ -1,7 +1,7 @@
 - resolve issue with running tests from test directory, at this moment test_x cannot find above imported python file
-- base size of model, equipement to implement
+- base size of model to implement
 - consider '-' as a value of stat
-- test for model_type, model_role, skills, exceptions
+- tests for model_type, model_role, skills, exceptions
 - write functions for the rest of the 9th age skill fuuuuuuuuuck
-- modify model to support model_role and model_type modules
 - docs motherfucker!
+-
