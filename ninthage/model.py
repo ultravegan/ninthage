@@ -8,20 +8,22 @@ from equipment import *
 from skill import *
 from model_type import *
 from model_role import *
+from model_base import *
 
 __author__ = "ultravegan"
 
 
 class Model(object):
-    def __init__(self, name, stats, skills, model_type, equipment, role=None):
+    def __init__(self, name, stats, skills, model_type, equipment, model_base, role=None):
         """
 
-        :param name: str
-        :param stats: dict
-        :param skills: list
-        :param model_type: ModelType
-        :param equipment: list
-        :param role: ModelRole
+        :param name:
+        :param stats:
+        :param skills:
+        :param model_type:
+        :param equipment:
+        :param model_base:
+        :param role:
         """
         self.name = name
         self.stats = stats
@@ -29,6 +31,7 @@ class Model(object):
         self.model_type = model_type
         self.role = role
         self.equipment = equipment
+        self.model_base = model_base
 
     @property
     def name(self):
@@ -104,6 +107,17 @@ class Model(object):
                 error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_EQUIPMENT,
                 extra="not a {}".format(type(equip)))
         self._equipment = value
+
+    @property
+    def model_base(self):
+        return self._model_base
+
+    @model_base.setter
+    def model_base(self, value):
+        assert isinstance(value, _ModelBase), "{error} {extra}".format(
+            error=exception.ERR_MESSAGE_MODEL_BASE_NOT_MODEL_BASE,
+            extra="not a {}".format(type(value)))
+        self._model_base = value
 
     @property
     def movement(self):
