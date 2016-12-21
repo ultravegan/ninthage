@@ -1,6 +1,7 @@
 - resolve issue with running tests from test directory, at this moment test_x cannot find above imported python file
-- support exceptions testing in test_model.py
-- write tests for other setter and getter stats fucntions
 - base size of model, equipement to implement
 - consider '-' as a value of stat
-- add equip to tests (include equip in init and write new tests)
+- test for model_type, model_role, skills, exceptions
+- write functions for the rest of the 9th age skill fuuuuuuuuuck
+- modify model to support model_role and model_type modules
+- docs motherfucker!

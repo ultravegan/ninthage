@@ -1,3 +1,9 @@
+__all__ = ["_Equipment", "_Weapon", "_CloseCombatWeapon", "_ShootingWeapon", "_ArtilleryWeapon", "_Armour",
+           "_SuitOfArmor", "_Shield", "_OtherProtections", "_MountProtection", "_InnateDefence", "Barding",
+           "BoltThrower", "Bow", "Crossbow", "Flail", "FlameThrower", "GreatWeapon", "Halberd", "Handgun", "HandWeapon",
+           "HeavyArmour", "InnateDefence", "Lance", "LightArmour", "LightLance", "Longbow", "MountProtection",
+           "PairedWeapon", "Pistol", "PlateArmour", "Shield", "Spear", "ThrowingWeapon", "VolleyGun"]
+
 """
 Model with equipment classes.
 """
@@ -8,6 +14,14 @@ __author__ = "ultravegan"
 class _Equipment(object):
     def __init__(self, name):
         self.name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        self._name = value
 
 
 class _Weapon(_Equipment):
@@ -51,104 +65,130 @@ class _InnateDefence(_Armour):
 
 
 class HandWeapon(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(HandWeapon, self).__init__("Hand Weapon", *args, **kwargs)
 
 
 class Flail(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Flail, self).__init__("Flail", *args, **kwargs)
 
 
 class GreatWeapon(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(GreatWeapon, self).__init__("Great Weapon", *args, **kwargs)
 
 
 class Halberd(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Halberd, self).__init__("Halberd", *args, **kwargs)
 
 
 class PairedWeapon(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(PairedWeapon, self).__init__("Paired Weapon", *args, **kwargs)
 
 
 class Lance(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Lance, self).__init__("Lance", *args, **kwargs)
 
 
 class LightLance(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(LightLance, self).__init__("Light Lance", *args, **kwargs)
 
 
 class Spear(_CloseCombatWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Spear, self).__init__("Spear", *args, **kwargs)
 
 
 class Bow(_ShootingWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Bow, self).__init__("Bow", *args, **kwargs)
 
 
 class Longbow(_ShootingWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Longbow, self).__init__("Longbow", *args, **kwargs)
 
 
 class Crossbow(_ShootingWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Crossbow, self).__init__("Crossbow", *args, **kwargs)
 
 
 class Handgun(_ShootingWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Handgun, self).__init__("Handgun", *args, **kwargs)
 
 
 class Pistol(_ShootingWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Pistol, self).__init__("Pistl", *args, **kwargs)
 
 
 class ThrowingWeapon(_ShootingWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(ThrowingWeapon, self).__init__("Throwing Weapon", *args, **kwargs)
 
 
 class BoltThrower(_ArtilleryWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(BoltThrower, self).__init__("Bolt Thrower", *args, **kwargs)
 
 
 class Cannon(_ArtilleryWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Cannon, self).__init__("Cannon", *args, **kwargs)
 
 
 class Catapult(_ArtilleryWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Catapult, self).__init__("Catapult", *args, **kwargs)
 
 
 class FlameThrower(_ArtilleryWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(FlameThrower, self).__init__("Flame Thrower", *args, **kwargs)
 
 
 class VolleyGun(_ArtilleryWeapon):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(VolleyGun, self).__init__("Volley Gun", *args, **kwargs)
 
 
 class LightArmour(_SuitOfArmor):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(LightArmour, self).__init__("Light Armour", *args, **kwargs)
 
 
 class HeavyArmour(_SuitOfArmor):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(HeavyArmour, self).__init__("Heavy Armour", *args, **kwargs)
 
 
 class PlateArmour(_SuitOfArmor):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(PlateArmour, self).__init__("Plate Armour", *args, **kwargs)
 
 
 class Shield(_Shield):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Shield, self).__init__("Shield", *args, **kwargs)
 
 
 class MountProtection(_MountProtection):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(MountProtection, self).__init__("Mount Protection", *args, **kwargs)
 
 
 class Barding(_MountProtection):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(Barding, self).__init__("Barding", *args, **kwargs)
 
 
 class InnateDefence(_InnateDefence):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(InnateDefence, self).__init__("Innate Defence", *args, **kwargs)

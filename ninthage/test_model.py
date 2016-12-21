@@ -3,8 +3,9 @@
 Model class tests.
 """
 import unittest
-
+from skill import *
 from model import Model
+from equipment import *
 
 __author__ = "ultravegan"
 
@@ -17,7 +18,7 @@ class TestModel(unittest.TestCase):
     def testModelExist(self):
         self.model = Model("Chaos Warriors",
                            {"M": 0, "WS": 1, "BS": 2, "S": 3, "T": 4, "W": 5, "I": 6, "A": 7, "Ld": 8, "Sv": 9,
-                            "WSv": 10}, ["Fear"], "Monster", "Champion")
+                            "WSv": 10}, [Accurate(), Ambush()], "Monster", [Shield(), Halberd()], "Champion")
 
     def testModelGetName(self):
         self.testModelExist()
@@ -31,7 +32,7 @@ class TestModel(unittest.TestCase):
 
     def testModelGetSkills(self):
         self.testModelExist()
-        self.assertEqual(self.model.skills, ["Fear"], "cannot get skills from model")
+        self.assertEqual([x.name for x in self.model.skills], ["Accurate", "Ambush"], "cannot get skills from model")
 
     def testModelGetType(self):
         self.testModelExist()
@@ -56,8 +57,8 @@ class TestModel(unittest.TestCase):
 
     def testModelSetSkills(self):
         self.testModelExist()
-        self.model.skills = ["Ambush"]
-        self.assertEqual(self.model.skills, ["Ambush"], "cannot get skills from model")
+        self.model.skills = [Ambush()]
+        self.assertEqual([x.name for x in self.model.skills], ["Ambush"], "cannot get skills from model")
 
     def testModelSetType(self):
         self.testModelExist()
@@ -71,13 +72,14 @@ class TestModel(unittest.TestCase):
 
     def testModelAddSkill(self):
         self.testModelExist()
-        self.model.add_skills("Ambush")
-        self.assertEqual(self.model.skills, ["Fear", "Ambush"], "cannot add skill to model")
+        self.model.add_skills(Fear())
+        self.assertEqual([x.name for x in self.model.skills], ["Accurate", "Ambush", "Fear"],
+                         "cannot add skill to model")
 
     def testModelRemoveSkill(self):
         self.testModelExist()
-        self.model.remove_skills("Fear")
-        self.assertEqual(self.model.skills, [], "cannot remove models skill")
+        self.model.remove_skills("Ambush")
+        self.assertEqual([x.name for x in self.model.skills], ["Accurate"], "cannot remove models skill")
 
     def testModelChangeStat(self):
         self.testModelExist()
@@ -126,6 +128,11 @@ class TestModel(unittest.TestCase):
     def testModelGetWardSave(self):
         self.testModelExist()
         self.assertEqual(self.model.ward_save, 10, "cannot get ward save from model")
+
+    def testModelGetEquipment(self):
+        self.testModelExist()
+        self.assertEqual([x.name for x in self.model.equipment], ["Shield", "Halberd"],
+                         "cannot get ward save from model")
 
     def testModelSetMovement(self):
         self.testModelExist()
@@ -181,6 +188,11 @@ class TestModel(unittest.TestCase):
         self.testModelExist()
         self.model.ward_save = 0
         self.assertEqual(self.model.ward_save, 0, "cannot set models attacks")
+
+    def testModelSetEquipment(self):
+        self.testModelExist()
+        self.model.equipment = [Shield(), Halberd()]
+        self.assertEqual([x.name for x in self.model.equipment], ["Shield", "Halberd"], "cannot set models equipment")
 
 
 if __name__ == "__main__":

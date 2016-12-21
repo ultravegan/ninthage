@@ -4,6 +4,8 @@ Module with model functionalities.
 """
 import exception
 import variables
+from equipment import *
+from skill import *
 
 __author__ = "ultravegan"
 
@@ -16,6 +18,7 @@ class Model(object):
         :param stats: dict
         :param skills: list
         :param model_type: str
+        :param equipment: list
         :param role: str
         """
         self.name = name
@@ -45,7 +48,6 @@ class Model(object):
                                                                  extra="not a {}".format(type(value)))
         for stat in value:
             if stat not in variables.STATS:
-                print stat
                 raise exception.ModelStatNotExistException(stat)
             if not (0 <= value[stat] <= 10):
                 raise exception.ModelStatNotInRange(stat, value[stat])
@@ -60,8 +62,9 @@ class Model(object):
         assert isinstance(value, list), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILLS_NOT_LIST,
                                                                  extra="not a {}".format(type(value)))
         for skill in value:
-            if skill not in variables.SKILLS:
-                raise exception.ModelSkillNotExistException(value)
+            assert isinstance(skill, _Skill), "{error} {extra}".format(
+                error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_SKILL,
+                extra="not a {}".format(type(skill)))
         self._skills = value
 
     @property
@@ -97,10 +100,9 @@ class Model(object):
         assert isinstance(value, list), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_LIST,
                                                                  extra="not a {}".format(type(value)))
         for equip in value:
-            assert isinstance(equip, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR,
-                                                                    extra="not a {}".format(type(value)))
-            if equip not in variables.EQUIPMENT:
-                raise exception.ModelEquipmentNotExistException(equip)
+            assert isinstance(equip, _Equipment), "{error} {extra}".format(
+                error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_EQUIPMENT,
+                extra="not a {}".format(type(equip)))
         self._equipment = value
 
     @property
@@ -237,23 +239,21 @@ class Model(object):
 
     def add_skills(self, *args):
         for skill in args:
-            assert isinstance(skill, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
-                                                                    extra="not a {}".format(type(skill)))
-            if skill not in variables.SKILLS:
-                raise exception.ModelSkillNotExistException(skill)
-            if skill in self.skills:
-                continue
+            assert isinstance(skill, _Skill), "{error} {extra}".format(
+                error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_SKILL,
+                extra="not a {}".format(type(skill)))
+            if skill.name in [x.name for x in self.skills]:
+                raise exception.ModelSkillAlreadyInSkills
             self.skills.append(skill)
 
     def remove_skills(self, *args):
         for skill in args:
-            assert isinstance(skill, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
-                                                                    extra="not a {}".format(type(skill)))
-            if skill not in variables.SKILLS:
-                raise exception.ModelSkillNotExistException(skill)
-            if skill not in self.skills:
+            assert isinstance(skill, str), "{error} {extra}".format(
+                error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
+                extra="not a {}".format(type(skill)))
+            if skill not in [x.name for x in self.skills]:
                 raise exception.ModelSkillNotInModelSkills(skill)
-            self.skills.remove(skill)
+            self.skills.remove([x for x in self.skills if x.name == skill][0])
 
     def change_stat(self, stat, value):
         assert isinstance(stat, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_STAT_NOT_STR,
@@ -268,25 +268,23 @@ class Model(object):
 
     def add_equipment(self, *args):
         for equip in args:
-            assert isinstance(equip, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
-                                                                    extra="not a {}".format(type(equip)))
-            if equip not in variables.EQUIPMENT:
-                raise exception.ModelEquipmentNotExistException(equip)
-            if equip in self.equipment:
-                continue
+            assert isinstance(equip, _Equipment), "{error} {extra}".format(
+                error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_EQUIPMENT,
+                extra="not a {}".format(type(equip)))
+            if equip.name in [x.name for x in self.equipment]:
+                raise exception.ModelEquipmentAlreadyExistException(equip.name)
             self.equipment.append(equip)
 
     def remove_equipment(self, *args):
         for equip in args:
-            assert isinstance(equip, str), "{error} {extra}".format(error=exception.ERR_MESSAGE_MODEL_SKILL_NOT_STR,
-                                                                    extra="not a {}".format(type(equip)))
-            if equip not in variables.EQUIPMENT:
-                raise exception.ModelEquipmentNotExistException(equip)
-            if equip not in self.equipment:
-                raise exception.ModelSkillNotInModelEquipment(equip)
-            self.equipment.remove(equip)
-    
+            assert isinstance(equip, str), "{error} {extra}".format(
+                error=exception.ERR_MESSAGE_MODEL_EQUIPMENT_NOT_STR,
+                extra="not a {}".format(type(equip)))
+            if equip not in [x.name for x in self.equipment]:
+                raise exception.ModelEquipmentNotInModelEquipment(equip.name)
+            self.equipment.remove([x for x in self.equipment if x.name == equip])
 
-
-a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
-                             "Sv": 0, "WSv": 0}, ["Fear"], "Monster", "Champion")
+# skills = [Fear(), Ambush()]
+# equipment = [Shield(), Halberd()]
+# a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
+#                             "Sv": 0, "WSv": 0}, skills, "Monster", equipment, role="Champion")
