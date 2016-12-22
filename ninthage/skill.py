@@ -2,7 +2,7 @@ __all__ = ["_Skill", "Ambush", "Fear", "Accurate"]
 
 
 class _Skill(object):
-    def __init__(self, name):
+    def __init__(self, name, *args, **kwargs):
         self.name = name
 
     @property

@@ -5,7 +5,7 @@ __all__ = ["_ModelType", "Infantry", "WarBeast", "Cavalry", "Monster", "Monstrou
 
 
 class _ModelType(object):
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         self.name = ''
 
     @property

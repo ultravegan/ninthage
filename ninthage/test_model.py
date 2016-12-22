@@ -8,6 +8,7 @@ from model import Model
 from equipment import *
 from model_role import *
 from model_type import *
+from model_base import *
 
 __author__ = "ultravegan"
 
@@ -20,7 +21,8 @@ class TestModel(unittest.TestCase):
     def testModelExist(self):
         self.model = Model("Chaos Warriors",
                            {"M": 0, "WS": 1, "BS": 2, "S": 3, "T": 4, "W": 5, "I": 6, "A": 7, "Ld": 8, "Sv": 9,
-                            "WSv": 10}, [Accurate(), Ambush()], Monster(), [Shield(), Halberd()], Champion())
+                            "WSv": 10}, [Accurate(), Ambush()], Monster(), [Shield(), Halberd()], ModelBaseSquare(3),
+                           Champion())
 
     def testModelGetName(self):
         self.testModelExist()
@@ -136,6 +138,11 @@ class TestModel(unittest.TestCase):
         self.assertEqual([x.name for x in self.model.equipment], ["Shield", "Halberd"],
                          "cannot get ward save from model")
 
+    def testModelGetBase(self):
+        self.testModelExist()
+        self.assertEqual([self.model.model_base.base_type, self.model.model_base.width], ["Square", 3],
+                         'cannot get model base')
+
     def testModelSetMovement(self):
         self.testModelExist()
         self.model.movement = 10
@@ -195,6 +202,12 @@ class TestModel(unittest.TestCase):
         self.testModelExist()
         self.model.equipment = [Shield(), Halberd()]
         self.assertEqual([x.name for x in self.model.equipment], ["Shield", "Halberd"], "cannot set models equipment")
+
+    def testModelSetBase(self):
+        self.testModelExist()
+        self.model.model_base = ModelBaseRound(3)
+        self.assertEqual([self.model.model_base.base_type, self.model.model_base.radius], ["Round", 3],
+                         "cannot set models base")
 
 
 if __name__ == "__main__":

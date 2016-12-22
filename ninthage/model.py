@@ -299,21 +299,10 @@ class Model(object):
             self.equipment.remove([x for x in self.equipment if x.name == equip])
 
 
-# skills = [Fear(), Ambush()]
+skills = [Fear(), Ambush()]
 equipment = [Shield(), Halberd()]
 model_role = Champion()
 model_type = Monster()
-# a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
-#       "Sv": 0, "WSv": 0}, skills, model_type, equipment, role=model_role)
-
-
-SKILLS = ["Accurate", "Ambush", "AreaAttack", "ArmourPiercing", "BreathWeapon", "CannotMarch", "Channel",
-          "CrushAttack", "DaemonicInstability", "DevastatingCharge", "Distracting", "DivineAttacks", "Engineer",
-          "Ethereal", "FastCavalry", "Fear", "FightinExtraRank", "Fireborn", "FlamingAttacks", "Flammable", "Fly",
-          "Frenzy", "GrindingAttacks", "HardTarget", "Hatred", "Hellfire", "HoldYourGround", "ImmunetoPsychology",
-          "ImpactHits", "Insignificant", "InspiringPresence", "LethalStrike", "LightTroops", "LightningAttack",
-          "LightningReflexes"]
-
-for skill in SKILLS:
-    print "class {}(_Skill):\n    def __init__(self, *args, **kwargs):\n        super({}, self).__init__(\"{}\", *args, **kwargs)\n\n".format(
-        skill, skill, skill)
+model_base = ModelBaseSquare(3)
+a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
+                             "Sv": 0, "WSv": 0}, skills, model_type, equipment, model_base, role=model_role)

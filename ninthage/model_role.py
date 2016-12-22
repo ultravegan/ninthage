@@ -4,7 +4,7 @@ __all__ = ["_ModelRole", "Champion", "Musician", "StandardBearer"]
 
 
 class _ModelRole(object):
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         self.name = ''
 
     @property
