@@ -303,16 +303,5 @@ skills = [Fear(), Ambush()]
 equipment = [Shield(), Halberd()]
 model_role = Champion()
 model_type = Monster()
-# a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
-#       "Sv": 0, "WSv": 0}, skills, model_type, equipment, role=model_role)
-
-SKILLS = ["Accurate", "Ambush", "Area Attack", "Armour Piercing", "Breath Weapon", "Cannot March", "Channel",
-          "Crush Attack", "Daemonic Instability", "Devastating Charge", "Distracting", "Divine Attacks", "Engineer",
-          "Ethereal", "Fast Cavalry", "Fear", "Fight in Extra Rank", "Fireborn", "Flaming Attacks", "Flammable", "Fly",
-          "Frenzy", "Grinding Attacks", "Hard Target", "Hatred", "Hellfire", "Hold Your Ground", "Immune to Psychology",
-          "Impact Hits", "Insignificant", "Inspiring Presence", "Lethal Strike", "Light Troops", "Lightning Attack",
-          "Lightning Reflexes"]
-
-for skill in SKILLS:
-    print "class {}(_Skill):\n    def __init__(self, *args, **kwargs):\n        supersuper({}, self).__init__(\"{}\", *args, **kwargs)\n\n".format(
-        skill, skill, skill)
+a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
+                             "Sv": 0, "WSv": 0}, skills, model_type, equipment, role=model_role)
