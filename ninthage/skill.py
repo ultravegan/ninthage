@@ -16,197 +16,174 @@ class _Skill(object):
 
 class Accurate(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Accurate, self).__init__("Accurate", *args, **kwargs)
+        super(Accurate, self).__init__("Accurate", *args, **kwargs)
 
 
 class Ambush(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Ambush, self).__init__("Ambush", *args, **kwargs)
+        super(Ambush, self).__init__("Ambush", *args, **kwargs)
 
 
-class Area Attack(_Skill):
+class AreaAttack(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Area
-        Attack, self).__init__("Area Attack", *args, **kwargs)
+        super(AreaAttack, self).__init__("AreaAttack", *args, **kwargs)
 
 
-class Armour Piercing(_Skill):
+class ArmourPiercing(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Armour
-        Piercing, self).__init__("Armour Piercing", *args, **kwargs)
+        super(ArmourPiercing, self).__init__("ArmourPiercing", *args, **kwargs)
 
 
-class Breath Weapon(_Skill):
+class BreathWeapon(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Breath
-        Weapon, self).__init__("Breath Weapon", *args, **kwargs)
+        super(BreathWeapon, self).__init__("BreathWeapon", *args, **kwargs)
 
 
-class Cannot March(_Skill):
+class CannotMarch(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Cannot
-        March, self).__init__("Cannot March", *args, **kwargs)
+        super(CannotMarch, self).__init__("CannotMarch", *args, **kwargs)
 
 
 class Channel(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Channel, self).__init__("Channel", *args, **kwargs)
+        super(Channel, self).__init__("Channel", *args, **kwargs)
 
 
-class Crush Attack(_Skill):
+class CrushAttack(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Crush
-        Attack, self).__init__("Crush Attack", *args, **kwargs)
+        super(CrushAttack, self).__init__("CrushAttack", *args, **kwargs)
 
 
-class Daemonic Instability(_Skill):
+class DaemonicInstability(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Daemonic
-        Instability, self).__init__("Daemonic Instability", *args, **kwargs)
+        super(DaemonicInstability, self).__init__("DaemonicInstability", *args, **kwargs)
 
 
-class Devastating Charge(_Skill):
+class DevastatingCharge(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Devastating
-        Charge, self).__init__("Devastating Charge", *args, **kwargs)
+        super(DevastatingCharge, self).__init__("DevastatingCharge", *args, **kwargs)
 
 
 class Distracting(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Distracting, self).__init__("Distracting", *args, **kwargs)
+        super(Distracting, self).__init__("Distracting", *args, **kwargs)
 
 
-class Divine Attacks(_Skill):
+class DivineAttacks(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Divine
-        Attacks, self).__init__("Divine Attacks", *args, **kwargs)
+        super(DivineAttacks, self).__init__("DivineAttacks", *args, **kwargs)
 
 
 class Engineer(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Engineer, self).__init__("Engineer", *args, **kwargs)
+        super(Engineer, self).__init__("Engineer", *args, **kwargs)
 
 
 class Ethereal(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Ethereal, self).__init__("Ethereal", *args, **kwargs)
+        super(Ethereal, self).__init__("Ethereal", *args, **kwargs)
 
 
-class Fast Cavalry(_Skill):
+class FastCavalry(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Fast
-        Cavalry, self).__init__("Fast Cavalry", *args, **kwargs)
+        super(FastCavalry, self).__init__("FastCavalry", *args, **kwargs)
 
 
 class Fear(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Fear, self).__init__("Fear", *args, **kwargs)
+        super(Fear, self).__init__("Fear", *args, **kwargs)
 
 
-class Fight in Extra Rank(_Skill):
+class FightinExtraRank(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Fight in Extra
-        Rank, self).__init__("Fight in Extra Rank", *args, **kwargs)
+        super(FightinExtraRank, self).__init__("FightinExtraRank", *args, **kwargs)
 
 
 class Fireborn(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Fireborn, self).__init__("Fireborn", *args, **kwargs)
+        super(Fireborn, self).__init__("Fireborn", *args, **kwargs)
 
 
-class Flaming Attacks(_Skill):
+class FlamingAttacks(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Flaming
-        Attacks, self).__init__("Flaming Attacks", *args, **kwargs)
+        super(FlamingAttacks, self).__init__("FlamingAttacks", *args, **kwargs)
 
 
 class Flammable(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Flammable, self).__init__("Flammable", *args, **kwargs)
+        super(Flammable, self).__init__("Flammable", *args, **kwargs)
 
 
 class Fly(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Fly, self).__init__("Fly", *args, **kwargs)
+        super(Fly, self).__init__("Fly", *args, **kwargs)
 
 
 class Frenzy(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Frenzy, self).__init__("Frenzy", *args, **kwargs)
+        super(Frenzy, self).__init__("Frenzy", *args, **kwargs)
 
 
-class Grinding Attacks(_Skill):
+class GrindingAttacks(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Grinding
-        Attacks, self).__init__("Grinding Attacks", *args, **kwargs)
+        super(GrindingAttacks, self).__init__("GrindingAttacks", *args, **kwargs)
 
 
-class Hard Target(_Skill):
+class HardTarget(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Hard
-        Target, self).__init__("Hard Target", *args, **kwargs)
+        super(HardTarget, self).__init__("HardTarget", *args, **kwargs)
 
 
 class Hatred(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Hatred, self).__init__("Hatred", *args, **kwargs)
+        super(Hatred, self).__init__("Hatred", *args, **kwargs)
 
 
 class Hellfire(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Hellfire, self).__init__("Hellfire", *args, **kwargs)
+        super(Hellfire, self).__init__("Hellfire", *args, **kwargs)
 
 
-class Hold Your Ground(_Skill):
+class HoldYourGround(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Hold
-        Your
-        Ground, self).__init__("Hold Your Ground", *args, **kwargs)
+        super(HoldYourGround, self).__init__("HoldYourGround", *args, **kwargs)
 
 
-class Immune to Psychology(_Skill):
+class ImmunetoPsychology(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Immune
-        to
-        Psychology, self).__init__("Immune to Psychology", *args, **kwargs)
+        super(ImmunetoPsychology, self).__init__("ImmunetoPsychology", *args, **kwargs)
 
 
-class Impact Hits(_Skill):
+class ImpactHits(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Impact
-        Hits, self).__init__("Impact Hits", *args, **kwargs)
+        super(ImpactHits, self).__init__("ImpactHits", *args, **kwargs)
 
 
 class Insignificant(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Insignificant, self).__init__("Insignificant", *args, **kwargs)
+        super(Insignificant, self).__init__("Insignificant", *args, **kwargs)
 
 
-class Inspiring Presence(_Skill):
+class InspiringPresence(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Inspiring
-        Presence, self).__init__("Inspiring Presence", *args, **kwargs)
+        super(InspiringPresence, self).__init__("InspiringPresence", *args, **kwargs)
 
 
-class Lethal Strike(_Skill):
+class LethalStrike(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Lethal
-        Strike, self).__init__("Lethal Strike", *args, **kwargs)
+        super(LethalStrike, self).__init__("LethalStrike", *args, **kwargs)
 
 
-class Light Troops(_Skill):
+class LightTroops(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Light
-        Troops, self).__init__("Light Troops", *args, **kwargs)
+        super(LightTroops, self).__init__("LightTroops", *args, **kwargs)
 
 
-class Lightning Attack(_Skill):
+class LightningAttack(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Lightning
-        Attack, self).__init__("Lightning Attack", *args, **kwargs)
+        super(LightningAttack, self).__init__("LightningAttack", *args, **kwargs)
 
 
-class Lightning Reflexes(_Skill):
+class LightningReflexes(_Skill):
     def __init__(self, *args, **kwargs):
-        supersuper(Lightning
-        Reflexes, self).__init__("Lightning Reflexes", *args, **kwargs)
+        super(LightningReflexes, self).__init__("LightningReflexes", *args, **kwargs)
