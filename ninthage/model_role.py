@@ -34,3 +34,9 @@ class StandardBearer(_ModelRole):
     def __init__(self, *args, **kwargs):
         super(StandardBearer, self).__init__(*args, **kwargs)
         self.name = "Standard Bearer"
+
+
+class VeteranStandardBearer(StandardBearer):
+    def __init__(self, *args, **kwargs):
+        super(VeteranStandardBearer, self).__init__(*args, **kwargs)
+        self.name = "Veteran Standard Bearer"
