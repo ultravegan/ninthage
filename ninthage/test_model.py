@@ -22,7 +22,7 @@ class TestModel(unittest.TestCase):
         self.model = Model("Chaos Warriors",
                            {"M": 0, "WS": 1, "BS": 2, "S": 3, "T": 4, "W": 5, "I": 6, "A": 7, "Ld": 8, "Sv": 9,
                             "WSv": 10}, [Accurate(), Ambush()], Monster(), [Shield(), Halberd()], ModelBaseSquare(3),
-                           Champion())
+                           15, Champion())
 
     def testModelGetName(self):
         self.testModelExist()
@@ -143,6 +143,10 @@ class TestModel(unittest.TestCase):
         self.assertEqual([self.model.model_base.base_type, self.model.model_base.width], ["Square", 3],
                          'cannot get model base')
 
+    def testModelGetBase(self):
+        self.testModelExist()
+        self.assertEqual(self.model.cost, 15, 'cannot get model cost')
+
     def testModelSetMovement(self):
         self.testModelExist()
         self.model.movement = 10
@@ -208,6 +212,11 @@ class TestModel(unittest.TestCase):
         self.model.model_base = ModelBaseRound(3)
         self.assertEqual([self.model.model_base.base_type, self.model.model_base.radius], ["Round", 3],
                          "cannot set models base")
+
+    def testModelSetCost(self):
+        self.testModelExist()
+        self.model.cost = 12
+        self.assertEqual(self.model.cost, 12, "cannot set models cost")
 
 
 if __name__ == "__main__":

@@ -8,7 +8,8 @@ __all__ = ["ERR_MESSAGE_MODEL_NAME_NOT_STR", "ERR_MESSAGE_MODEL_ROLE_NOT_STR", "
            "ERR_MESSAGE_MODEL_TYPE_NOT_MODEL_TYPE", "ERR_MESSAGE_MODEL_ROLE_NOT_MODEL_ROLE",
            "ERR_MESSAGE_MODEL_BASE_NOT_MODEL_BASE", "ERR_MESSAGE_MODEL_BASE_TYPE_NOT_BASE",
            "ERR_MESSAGE_MODEL_BASE_LENGTH_NOT_UNSIGNED_INT", "ERR_MESSAGE_MODEL_BASE_WIDTH_NOT_UNSIGNED_INT",
-           "ERR_MESSAGE_MODEL_BASE_RADIUS_NOT_UNSIGNED_INT", "ERR_MESSAGE_UNIT_NAME_NOT_STR"]
+           "ERR_MESSAGE_MODEL_BASE_RADIUS_NOT_UNSIGNED_INT", "ERR_MESSAGE_UNIT_NAME_NOT_STR",
+           "ERR_MESSAGE_MODEL_COST_NOT_INT", "ERR_MESSAGE_UNIT_MODELS_NOT_LIST", "ERR_MESSAGE_UNIT_MODEL_NOT_MODEL"]
 
 # model.py errors
 ERR_MESSAGE_MODEL_NAME_NOT_STR = "Model name has to be string"
@@ -30,7 +31,7 @@ ERR_MESSAGE_MODEL_BASE_TYPE_NOT_BASE = 'Model base name has to be string'
 ERR_MESSAGE_MODEL_BASE_LENGTH_NOT_UNSIGNED_INT = 'Model base length has to be unsigned int'
 ERR_MESSAGE_MODEL_BASE_WIDTH_NOT_UNSIGNED_INT = 'Model base width has to be int unsigned int'
 ERR_MESSAGE_MODEL_BASE_RADIUS_NOT_UNSIGNED_INT = 'Model base radius has to be unsigned int'
-ERR_MESSAGE_UNIT_NAME_NOT_STR = 'Unit name has to be string'
+ERR_MESSAGE_MODEL_COST_NOT_INT = 'Model cost has to be int'
 
 
 class ModelStatNotExistException(Exception):
@@ -112,3 +113,9 @@ class ModelEquipmentAlreadyExistException(Exception):
 
     def __str__(self):
         return 'Model already has {equip} equipment'.format(equip=self.equip)
+
+
+# unit.py errors
+ERR_MESSAGE_UNIT_NAME_NOT_STR = 'Unit name has to be string'
+ERR_MESSAGE_UNIT_MODELS_NOT_LIST = 'Unit models has to be list'
+ERR_MESSAGE_UNIT_MODEL_NOT_MODEL = 'Unit has to be model objects'

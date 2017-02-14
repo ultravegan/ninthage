@@ -14,7 +14,7 @@ __author__ = "ultravegan"
 
 
 class Model(object):
-    def __init__(self, name, stats, skills, model_type, equipment, model_base, role=None):
+    def __init__(self, name, stats, skills, model_type, equipment, model_base, cost, role=None):
         """
 
         :param name:
@@ -29,9 +29,10 @@ class Model(object):
         self.stats = stats
         self.skills = skills
         self.model_type = model_type
-        self.role = role
         self.equipment = equipment
         self.model_base = model_base
+        self.cost = cost
+        self.role = role
 
     @property
     def name(self):
@@ -118,6 +119,17 @@ class Model(object):
             error=exception.ERR_MESSAGE_MODEL_BASE_NOT_MODEL_BASE,
             extra="not a {}".format(type(value)))
         self._model_base = value
+
+    @property
+    def cost(self):
+        return self._cost
+
+    @cost.setter
+    def cost(self, value):
+        assert isinstance(value, int), "{error} {extra}".format(
+            error=exception.ERR_MESSAGE_MODEL_COST_NOT_INT,
+            extra="not a {}".format(type(value)))
+        self._cost = value
 
     @property
     def movement(self):
@@ -305,4 +317,4 @@ model_role = Champion()
 model_type = Monster()
 model_base = ModelBaseSquare(3)
 a = Model("Chaos Warriors", {"M": 0, "WS": 0, "BS": 0, "T": 0, "W": 0, "I": 0, "A": 0, "Ld": 0,
-                             "Sv": 0, "WSv": 0}, skills, model_type, equipment, model_base, role=model_role)
+                             "Sv": 0, "WSv": 0}, skills, model_type, equipment, model_base, 10, role=model_role)
